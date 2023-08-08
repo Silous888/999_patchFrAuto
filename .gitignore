@@ -1,0 +1,14 @@
+/__pycache__
+/ZE999Tool.v0.9.8.1
+/build
+/dist
+/ancien_git
+
+*.json
+*.txt
+*.spec
+*.log
+
+ze1_data.bin
+ze1.exe.xml
+credentials.py
