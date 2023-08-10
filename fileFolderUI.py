@@ -235,6 +235,7 @@ class _MainWindow(QMainWindow):
         self.ui.label_process.hide()
         self.ui.label_done.show()
         self.ui.pushButton_process.setEnabled(True)
+        self.ui.pushButton_choix_fichier.setEnabled(True)
         self.ui.pushButton_browse.setEnabled(True)
         self.ui.fileEdit_path.setEnabled(True)
         self.ui.label_process.text = "in process..."
@@ -244,6 +245,7 @@ class _MainWindow(QMainWindow):
         """disable ui during the process"""
         self.ui.label_process.show()
         self.ui.pushButton_process.setEnabled(False)
+        self.ui.pushButton_choix_fichier.setEnabled(False)
         self.ui.pushButton_browse.setEnabled(False)
         self.ui.fileEdit_path.setEnabled(False)
 
