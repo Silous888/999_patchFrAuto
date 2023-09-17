@@ -2,10 +2,10 @@ from PyQt5.QtWidgets import QGridLayout, QCheckBox, QPushButton, QVBoxLayout, QG
 
 import listeFichier
 
-class CheckboxWindowFile(QDialog):
+class CheckboxWindowImage(QDialog):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('Choix des fichiers à patch')
+        self.setWindowTitle('Choix des images à patch')
         self.setGeometry(100, 100, 800, 600)
         
         layout = QGridLayout()

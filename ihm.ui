@@ -36,7 +36,7 @@
    <widget class="QPushButton" name="pushButton_process">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>300</x>
       <y>40</y>
       <width>75</width>
       <height>23</height>
@@ -68,9 +68,9 @@
    <widget class="QLabel" name="label_done">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>440</x>
       <y>40</y>
-      <width>51</width>
+      <width>121</width>
       <height>20</height>
      </rect>
     </property>
@@ -81,9 +81,9 @@
    <widget class="QLabel" name="label_process">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>440</x>
       <y>40</y>
-      <width>301</width>
+      <width>191</width>
       <height>21</height>
      </rect>
     </property>
@@ -112,6 +112,19 @@
     </property>
     <property name="text">
      <string>Choisir fichiers</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_choix_image">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>40</y>
+      <width>91</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Choisir images</string>
     </property>
    </widget>
   </widget>

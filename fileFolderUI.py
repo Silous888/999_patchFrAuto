@@ -10,7 +10,8 @@ from PyQt5.QtCore import pyqtSignal, pyqtSlot, QDir, QObject, QThread, QRect, QS
 # -------------------- Import Lib User -------------------
 from Ui_ihm import Ui_MainWindow
 
-from uiChoixFichierPatch import CheckboxWindow
+from uiChoixFichierPatch import CheckboxWindowFile
+from uiChoixImagePatch import CheckboxWindowImage
 # -------------------- Constant -------------------
 
 
@@ -126,6 +127,7 @@ class _MainWindow(QMainWindow):
         self.ui.pushButton_browse.clicked.connect(self.find_element)
         self.ui.pushButton_process.clicked.connect(self.run_process)
         self.ui.pushButton_choix_fichier.clicked.connect(self.ouvrir_choix_fichier)
+        self.ui.pushButton_choix_image.clicked.connect(self.ouvrir_choix_image)
         self.ui.fileEdit_path.textChanged.connect(self.hide_done)
         # signals of the thread
         self.m_worker.command.connect(self.m_worker.thread_process)
@@ -214,11 +216,17 @@ class _MainWindow(QMainWindow):
 
     @pyqtSlot()
     def ouvrir_choix_fichier(self):
-        window = CheckboxWindow()
+        window = CheckboxWindowFile()
         window.exec_()
         checkbox_values = window.get_checkbox_values()
         self.m_worker.signal_listes_fichiers_bool.emit(checkbox_values)
 
+    @pyqtSlot()
+    def ouvrir_choix_image(self):
+        window = CheckboxWindowImage()
+        window.exec_()
+        checkbox_values = window.get_checkbox_values()
+        self.m_worker.signal_listes_fichiers_bool.emit(checkbox_values)
 
     @pyqtSlot(str)
     def hide_done(self, text):
@@ -236,6 +244,7 @@ class _MainWindow(QMainWindow):
         self.ui.label_done.show()
         self.ui.pushButton_process.setEnabled(True)
         self.ui.pushButton_choix_fichier.setEnabled(True)
+        self.ui.pushButton_choix_image.setEnabled(True)
         self.ui.pushButton_browse.setEnabled(True)
         self.ui.fileEdit_path.setEnabled(True)
         self.ui.label_process.text = "in process..."
@@ -246,6 +255,7 @@ class _MainWindow(QMainWindow):
         self.ui.label_process.show()
         self.ui.pushButton_process.setEnabled(False)
         self.ui.pushButton_choix_fichier.setEnabled(False)
+        self.ui.pushButton_choix_image.setEnabled(False)
         self.ui.pushButton_browse.setEnabled(False)
         self.ui.fileEdit_path.setEnabled(False)
 
