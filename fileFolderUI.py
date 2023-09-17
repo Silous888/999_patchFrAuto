@@ -59,15 +59,22 @@ class _Worker(QObject):
     signal_set_value_progressbar = pyqtSignal(int)
     signal_set_text_progress = pyqtSignal(str)
     signal_listes_fichiers_bool = pyqtSignal(list)
+    signal_listes_images_bool = pyqtSignal(list)
     
     tailles = [16, 54, 8]
+    tailles_images = [9, 6, 5, 10, 10, 4, 9, 3, 9, 4]
     # Initialiser la liste principale
     liste_choix_fichiers = []
+    liste_choix_images = []
     # Boucle pour créer les listes intérieures et les remplir de valeurs True
     for taille in tailles:
         liste_interieure = [True] * taille
         liste_choix_fichiers.append(liste_interieure)
 
+    for taille in tailles_images:
+        liste_interieure = [False] * taille
+        liste_choix_images.append(liste_interieure)
+    
     def __init__(self):
         super().__init__()
         self.process_func1 = _do_nothing1
@@ -91,6 +98,9 @@ class _Worker(QObject):
     
     def set_choix_fichiers_bool(self, liste):
         self.liste_choix_fichiers = liste
+    
+    def set_choix_images_bool(self, liste):
+        self.liste_choix_images = liste
 
 
 
@@ -132,6 +142,7 @@ class _MainWindow(QMainWindow):
         # signals of the thread
         self.m_worker.command.connect(self.m_worker.thread_process)
         self.m_worker.signal_listes_fichiers_bool.connect(self.m_worker.set_choix_fichiers_bool)
+        self.m_worker.signal_listes_images_bool.connect(self.m_worker.set_choix_images_bool)
         self.m_worker.signal_process_done.connect(self.enable_ui)
         self.m_worker.signal_set_value_progressbar.connect(self.change_progressbar_value)
         self.m_worker.signal_set_text_progress.connect(self.change_progress_text)
@@ -216,17 +227,17 @@ class _MainWindow(QMainWindow):
 
     @pyqtSlot()
     def ouvrir_choix_fichier(self):
-        window = CheckboxWindowFile()
-        window.exec_()
-        checkbox_values = window.get_checkbox_values()
+        window_fichier = CheckboxWindowFile()
+        window_fichier.exec_()
+        checkbox_values = window_fichier.get_checkbox_values()
         self.m_worker.signal_listes_fichiers_bool.emit(checkbox_values)
 
     @pyqtSlot()
     def ouvrir_choix_image(self):
-        window = CheckboxWindowImage()
-        window.exec_()
-        checkbox_values = window.get_checkbox_values()
-        self.m_worker.signal_listes_fichiers_bool.emit(checkbox_values)
+        window_images = CheckboxWindowImage()
+        window_images.exec_()
+        checkbox_values_images = window_images.get_checkbox_values()
+        self.m_worker.signal_listes_images_bool.emit(checkbox_values_images)
 
     @pyqtSlot(str)
     def hide_done(self, text):

@@ -3,27 +3,27 @@ from PyQt5.QtWidgets import QGridLayout, QCheckBox, QPushButton, QVBoxLayout, QG
 import listeFichier
 
 
-NOMBRE_GROUPE = 11
+NOMBRE_GROUPE = 10
 
 class CheckboxWindowImage(QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Choix des images à patch')
-        self.setGeometry(10, 10, 1000, 800)
+        self.setGeometry(25, 25, 1000, 800)
         
         
 
         layout = QGridLayout()
-        num_rows = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-        num_cols = [9, 6, 5, 10, 10, 4, 9, 2, 10, 9, 4]
+        num_rows = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        num_cols = [9, 6, 5, 10, 10, 4, 9, 3, 9, 4]
         nom_groups = ["AUTRE + CLAVIER - MANETTE + LOGO ITEM + LOGO",
                       "ENIGME", "INTERFACE JEU",
                       "INTERFACE JEU - BARRE LABEL ET SWITCH MODE",
                       "INTERFACE JEU - BOUTONS ANGLE", "INTERFACE JEU - BOUTONS 8 COTES",
                       "INTERFACE JEU - GROS BOUTONS RECTANGLE", "INTERFACE JEU - LABEL",
-                      "INTERFACE JEU - LABEL - CADRE BLEU", "LETTRE ET CHIFFRE",
+                      "LETTRE ET CHIFFRE",
                       "MENU PRINCIPAL"]
-        nom_checkboxes = [listeFichier.LISTE_NOM_AUTRE + listeFichier.LISTE_NOM_CLAVIER_MANETTE + listeFichier.LISTE_LOGO_ITEM +  listeFichier.LISTE_LOGO,
+        nom_checkboxes = [listeFichier.LISTE_NOM_AUTRE_IMAGE + listeFichier.LISTE_NOM_CLAVIER_MANETTE + listeFichier.LISTE_LOGO_ITEM +  listeFichier.LISTE_LOGO,
                           listeFichier.LISTE_NOM_ENIGME,
                           listeFichier.LISTE_INTERFACE_JEU,
                           listeFichier.LISTE_INTERFACE_JEU_BARRE_LABEL_ET_SWITCH_MODE,
@@ -31,10 +31,9 @@ class CheckboxWindowImage(QDialog):
                           listeFichier.LISTE_INTERFACE_JEU_BOUTONS_8_COTES,
                           listeFichier.LISTE_INTERFACE_JEU_GROS_BOUTONS_RECTANGLE,
                           listeFichier.LISTE_INTERFACE_JEU_LABEL,
-                          listeFichier.LISTE_INTERFACE_JEU_LABEL_CADRE_BLEU,
                           listeFichier.LISTE_LETTRE_ET_CHIFFRE,
                           listeFichier.LISTE_MENU_PRINCIPAL]
-        self.checkboxes = [[], [], [], [], [], [], [], [], [], [], [], [], []]  # Pour stocker les checkboxes
+        self.checkboxes = [[], [], [], [], [], [], [], [], [], []]  # Pour stocker les checkboxes
 
         check_all_button = []
         uncheck_all_button = []
@@ -68,7 +67,6 @@ class CheckboxWindowImage(QDialog):
         check_all_button[7].clicked.connect(self.check_all8)
         check_all_button[8].clicked.connect(self.check_all9)
         check_all_button[9].clicked.connect(self.check_all10)
-        check_all_button[10].clicked.connect(self.check_all11)
 
         uncheck_all_button[0].clicked.connect(self.uncheck_all1)
         uncheck_all_button[1].clicked.connect(self.uncheck_all2)
@@ -80,7 +78,6 @@ class CheckboxWindowImage(QDialog):
         uncheck_all_button[7].clicked.connect(self.uncheck_all8)
         uncheck_all_button[8].clicked.connect(self.uncheck_all9)
         uncheck_all_button[9].clicked.connect(self.uncheck_all10)
-        uncheck_all_button[10].clicked.connect(self.uncheck_all11)
 
         ok_button = QPushButton('OK')
         ok_button.clicked.connect(self.ok_clicked)
@@ -175,15 +172,6 @@ class CheckboxWindowImage(QDialog):
     def uncheck_all10(self):
         for checkbox in self.checkboxes[9]:
             checkbox.setChecked(False)
-    
-    def check_all11(self):
-        for checkbox in self.checkboxes[10]:
-            checkbox.setChecked(True)
-
-    def uncheck_all11(self):
-        for checkbox in self.checkboxes[10]:
-            checkbox.setChecked(False)
-    
 
     def ok_clicked(self):
         self.checkbox_values = []

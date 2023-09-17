@@ -7,6 +7,7 @@ import listeFichier
 import utils
 import os
 import shutil
+import ImageTelechargement
 
 
 TOTAL_PROGRESSION = (
@@ -296,6 +297,14 @@ def gestion_AUTRE_MAP(instance_worker):
     update_texte_progression(instance_worker, fichier)
     modif_fichier_xml(instance_worker, fichier, matSheet.NomsColonnes.MAP, True)
     incrementer_progression(instance_worker)
+
+
+def gestion_images(instance_worker):
+    for i in range(len(listeFichier.LISTE_ID_DOSSIER)):
+        for j in range(len(listeFichier.LISTE_ID_DOSSIER[i])):
+            if instance_worker.liste_choix_images[i][j]:
+                update_texte_progression(instance_worker, "téléchargement image " + listeFichier.LISTE_NOM_DOSSIER[i][j])
+                ImageTelechargement.download_files_in_folder(listeFichier.LISTE_ID_DOSSIER[i][j])
 
 
 def incrementer_progression(instance_worker, valeur=1):
