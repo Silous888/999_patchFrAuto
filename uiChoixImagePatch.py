@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QGridLayout, QCheckBox, QPushButton, QVBoxLayout, QGroupBox, QDialog
+from PyQt5.QtWidgets import QGridLayout, QCheckBox, QPushButton, QVBoxLayout, QGroupBox, QDialog, QWidget, QScrollArea
 
 import listeFichier
 
@@ -9,11 +9,21 @@ class CheckboxWindowImage(QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Choix des images à patch')
-        self.setGeometry(25, 25, 1000, 800)
+        self.setGeometry(25, 25, 1000, 400)
         
-        
+        content_widget = QWidget(self)
 
-        layout = QGridLayout()
+        # Créez un layout pour le contenu
+        layout = QVBoxLayout(content_widget)
+
+        scroll_area = QScrollArea(self)
+        scroll_area.setWidget(content_widget)
+        scroll_area.setWidgetResizable(True)  # Permet à son contenu d'être redimensionné
+
+        # Ajoutez le widget de défilement à la boîte de dialogue
+        main_layout = QVBoxLayout(self)
+        main_layout.addWidget(scroll_area)
+
         num_rows = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
         num_cols = [9, 6, 5, 10, 10, 4, 9, 3, 9, 4]
         nom_groups = ["AUTRE + CLAVIER - MANETTE + LOGO ITEM + LOGO",
