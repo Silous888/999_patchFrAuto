@@ -68,7 +68,7 @@
    <widget class="QLabel" name="label_done">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>380</x>
       <y>40</y>
       <width>121</width>
       <height>20</height>
@@ -81,9 +81,9 @@
    <widget class="QLabel" name="label_process">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>380</x>
       <y>40</y>
-      <width>191</width>
+      <width>251</width>
       <height>21</height>
      </rect>
     </property>
@@ -127,6 +127,13 @@
      <string>Choisir images</string>
     </property>
    </widget>
+   <zorder>pushButton_process</zorder>
+   <zorder>pushButton_browse</zorder>
+   <zorder>fileEdit_path</zorder>
+   <zorder>pushButton_choix_fichier</zorder>
+   <zorder>pushButton_choix_image</zorder>
+   <zorder>label_done</zorder>
+   <zorder>label_process</zorder>
   </widget>
  </widget>
  <customwidgets>

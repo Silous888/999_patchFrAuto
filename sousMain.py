@@ -13,7 +13,8 @@ import ImageTelechargement
 TOTAL_PROGRESSION = (
     len(listeFichier.LISTE_NOM_FICHIER_AUTRE)
     + len(listeFichier.LISTE_NOM_FICHIER_DESC)
-    + len(listeFichier.LISTE_NOM_FICHIER_DLG)
+    + len(listeFichier.LISTE_NOM_FICHIER_DLG) 
+    + len(listeFichier.LISTE_ID_DOSSIER)
     + 20
 )
 progression_actuelle = 0
@@ -305,6 +306,7 @@ def gestion_images(instance_worker):
             if instance_worker.liste_choix_images[i][j]:
                 update_texte_progression(instance_worker, "téléchargement image " + listeFichier.LISTE_NOM_DOSSIER[i][j])
                 ImageTelechargement.download_files_in_folder(listeFichier.LISTE_ID_DOSSIER[i][j])
+        incrementer_progression(instance_worker)
 
 
 def incrementer_progression(instance_worker, valeur=1):
