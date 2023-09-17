@@ -97,7 +97,7 @@ class CheckboxWindowImage(QDialog):
 
         main_layout = QVBoxLayout()
         main_layout.addLayout(layout)
-        main_layout.addLayout(button_layout)
+        layout.addLayout(button_layout)
 
         self.setLayout(main_layout)
 
