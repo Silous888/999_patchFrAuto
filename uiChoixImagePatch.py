@@ -2,23 +2,44 @@ from PyQt5.QtWidgets import QGridLayout, QCheckBox, QPushButton, QVBoxLayout, QG
 
 import listeFichier
 
+
+NOMBRE_GROUPE = 11
+
 class CheckboxWindowImage(QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Choix des images à patch')
-        self.setGeometry(100, 100, 800, 600)
+        self.setGeometry(10, 10, 1000, 800)
         
+        
+
         layout = QGridLayout()
-        num_rows = [4, 9, 2]
-        num_cols = [4, 6, 4]
-        nom_groups = ["ESCAPE", "NARRATION", "AUTRE"]
-        nom_checkboxes = [listeFichier.LISTE_NOM_DESC_ID, listeFichier.LISTE_NOM_DLG_ID, listeFichier.LISTE_NOM_AUTRE_ID]
-        self.checkboxes = [[], [], []]  # Pour stocker les checkboxes
+        num_rows = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        num_cols = [9, 6, 5, 10, 10, 4, 9, 2, 10, 9, 4]
+        nom_groups = ["AUTRE + CLAVIER - MANETTE + LOGO ITEM + LOGO",
+                      "ENIGME", "INTERFACE JEU",
+                      "INTERFACE JEU - BARRE LABEL ET SWITCH MODE",
+                      "INTERFACE JEU - BOUTONS ANGLE", "INTERFACE JEU - BOUTONS 8 COTES",
+                      "INTERFACE JEU - GROS BOUTONS RECTANGLE", "INTERFACE JEU - LABEL",
+                      "INTERFACE JEU - LABEL - CADRE BLEU", "LETTRE ET CHIFFRE",
+                      "MENU PRINCIPAL"]
+        nom_checkboxes = [listeFichier.LISTE_NOM_AUTRE + listeFichier.LISTE_NOM_CLAVIER_MANETTE + listeFichier.LISTE_LOGO_ITEM +  listeFichier.LISTE_LOGO,
+                          listeFichier.LISTE_NOM_ENIGME,
+                          listeFichier.LISTE_INTERFACE_JEU,
+                          listeFichier.LISTE_INTERFACE_JEU_BARRE_LABEL_ET_SWITCH_MODE,
+                          listeFichier.LISTE_INTERFACE_JEU_BOUTONS_ANGLE,
+                          listeFichier.LISTE_INTERFACE_JEU_BOUTONS_8_COTES,
+                          listeFichier.LISTE_INTERFACE_JEU_GROS_BOUTONS_RECTANGLE,
+                          listeFichier.LISTE_INTERFACE_JEU_LABEL,
+                          listeFichier.LISTE_INTERFACE_JEU_LABEL_CADRE_BLEU,
+                          listeFichier.LISTE_LETTRE_ET_CHIFFRE,
+                          listeFichier.LISTE_MENU_PRINCIPAL]
+        self.checkboxes = [[], [], [], [], [], [], [], [], [], [], [], [], []]  # Pour stocker les checkboxes
 
         check_all_button = []
         uncheck_all_button = []
 
-        for k in range(3):
+        for k in range(NOMBRE_GROUPE):
             group_box = QGroupBox(nom_groups[k])
             group_layout = QGridLayout(group_box)
             for i in range(num_cols[k]):
@@ -40,9 +61,26 @@ class CheckboxWindowImage(QDialog):
         check_all_button[0].clicked.connect(self.check_all1)
         check_all_button[1].clicked.connect(self.check_all2)
         check_all_button[2].clicked.connect(self.check_all3)
+        check_all_button[3].clicked.connect(self.check_all4)
+        check_all_button[4].clicked.connect(self.check_all5)
+        check_all_button[5].clicked.connect(self.check_all6)
+        check_all_button[6].clicked.connect(self.check_all7)
+        check_all_button[7].clicked.connect(self.check_all8)
+        check_all_button[8].clicked.connect(self.check_all9)
+        check_all_button[9].clicked.connect(self.check_all10)
+        check_all_button[10].clicked.connect(self.check_all11)
+
         uncheck_all_button[0].clicked.connect(self.uncheck_all1)
         uncheck_all_button[1].clicked.connect(self.uncheck_all2)
         uncheck_all_button[2].clicked.connect(self.uncheck_all3)
+        uncheck_all_button[3].clicked.connect(self.uncheck_all4)
+        uncheck_all_button[4].clicked.connect(self.uncheck_all5)
+        uncheck_all_button[5].clicked.connect(self.uncheck_all6)
+        uncheck_all_button[6].clicked.connect(self.uncheck_all7)
+        uncheck_all_button[7].clicked.connect(self.uncheck_all8)
+        uncheck_all_button[8].clicked.connect(self.uncheck_all9)
+        uncheck_all_button[9].clicked.connect(self.uncheck_all10)
+        uncheck_all_button[10].clicked.connect(self.uncheck_all11)
 
         ok_button = QPushButton('OK')
         ok_button.clicked.connect(self.ok_clicked)
@@ -82,9 +120,74 @@ class CheckboxWindowImage(QDialog):
         for checkbox in self.checkboxes[2]:
             checkbox.setChecked(False)
 
+    def check_all4(self):
+        for checkbox in self.checkboxes[3]:
+            checkbox.setChecked(True)
+
+    def uncheck_all4(self):
+        for checkbox in self.checkboxes[3]:
+            checkbox.setChecked(False)
+    
+    def check_all5(self):
+        for checkbox in self.checkboxes[4]:
+            checkbox.setChecked(True)
+
+    def uncheck_all5(self):
+        for checkbox in self.checkboxes[4]:
+            checkbox.setChecked(False)
+    
+    def check_all6(self):
+        for checkbox in self.checkboxes[5]:
+            checkbox.setChecked(True)
+
+    def uncheck_all6(self):
+        for checkbox in self.checkboxes[5]:
+            checkbox.setChecked(False)
+    
+    def check_all7(self):
+        for checkbox in self.checkboxes[6]:
+            checkbox.setChecked(True)
+
+    def uncheck_all7(self):
+        for checkbox in self.checkboxes[6]:
+            checkbox.setChecked(False)
+    
+    def check_all8(self):
+        for checkbox in self.checkboxes[7]:
+            checkbox.setChecked(True)
+
+    def uncheck_all8(self):
+        for checkbox in self.checkboxes[7]:
+            checkbox.setChecked(False)
+    
+    def check_all9(self):
+        for checkbox in self.checkboxes[8]:
+            checkbox.setChecked(True)
+
+    def uncheck_all9(self):
+        for checkbox in self.checkboxes[8]:
+            checkbox.setChecked(False)
+    
+    def check_all10(self):
+        for checkbox in self.checkboxes[9]:
+            checkbox.setChecked(True)
+
+    def uncheck_all10(self):
+        for checkbox in self.checkboxes[9]:
+            checkbox.setChecked(False)
+    
+    def check_all11(self):
+        for checkbox in self.checkboxes[10]:
+            checkbox.setChecked(True)
+
+    def uncheck_all11(self):
+        for checkbox in self.checkboxes[10]:
+            checkbox.setChecked(False)
+    
+
     def ok_clicked(self):
         self.checkbox_values = []
-        for i in range(3):
+        for i in range(NOMBRE_GROUPE):
             self.checkbox_values.append([checkbox.isChecked() for checkbox in self.checkboxes[i]])
         self.close()
     

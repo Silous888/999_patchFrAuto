@@ -40,3 +40,34 @@ LISTE_NOM_DLG_ID = ["a01b", "a01d", "a01e", "a11b", "a11d", "a12b", "a12d", "a12
 LISTE_NOM_DESC_ID = ["a01", "a11", "a12", "a21", "a31", "a32", "a41", "a42", "b11", "b12", "b21", "b31", "b32", "c21", "c31", "c32"]
 
 LISTE_NOM_AUTRE_ID = ["name", "msg", "fchart", "doc", "map", "credit", "room", "item"]
+
+
+# IMAGE
+
+LISTE_NOM_AUTRE = ["autre"]
+
+LISTE_NOM_CLAVIER_MANETTE = ["clavier", "manette"]
+
+LISTE_NOM_ENIGME = ["bibliotheque", "casino", "documents", "label divers", "salles de confinement", "vitesse bateau"]
+
+LISTE_INTERFACE_JEU = ["bouton combine et action", "calculatrice", "icone", "NEW!", "Non classé"]
+
+LISTE_INTERFACE_JEU_BARRE_LABEL_ET_SWITCH_MODE = ["adv screen", "akane vision", "auto save", "channel", "file", "item", "junpei vision", "map", "menu", "novel screen"]
+
+LISTE_INTERFACE_JEU_BOUTONS_ANGLE = ["back", "check", "close", "digital root", "hint", "off", "reset", "restart", "search", "spin"]
+
+LISTE_INTERFACE_JEU_BOUTONS_8_COTES = ["check", "off", "on", "reset"]
+
+LISTE_INTERFACE_JEU_GROS_BOUTONS_RECTANGLE = ["all skip", "auto", "file", "flow", "map", "quit", "save", "skip", "stop"]
+
+LISTE_INTERFACE_JEU_LABEL = ["deck", "vitesse"]
+
+LISTE_INTERFACE_JEU_LABEL_CADRE_BLEU = ["calc", "combine", "file", "flow", "item", "menu", "quit", "save", "search", "speed up"]
+
+LISTE_LETTRE_ET_CHIFFRE = ["carré", "carré encadré", "E - C", "Emmergence", "Grand carré beige", "jaune", "jaune fond vert", "pixel", "rond"]
+
+LISTE_LOGO = ["999", "all Rights Reserved", "Studio", "VLR", "Zero Escape"]
+
+LISTE_LOGO_ITEM = ["logo item"]
+
+LISTE_MENU_PRINCIPAL = ["boutons", "label option", "preview", "non classé"]
