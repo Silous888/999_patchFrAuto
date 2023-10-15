@@ -61,9 +61,9 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "999 patch automatique"))
-        self.pushButton_process.setText(_translate("MainWindow", "process"))
+        self.pushButton_process.setText(_translate("MainWindow", "Démarrer"))
         self.pushButton_browse.setText(_translate("MainWindow", "browse"))
-        self.label_done.setText(_translate("MainWindow", "done !"))
+        self.label_done.setText(_translate("MainWindow", "Terminé !"))
         self.label_process.setText(_translate("MainWindow", "in process..."))
         self.pushButton_choix_fichier.setText(_translate("MainWindow", "Choisir fichiers"))
         self.pushButton_choix_image.setText(_translate("MainWindow", "Choisir images"))

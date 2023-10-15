@@ -264,6 +264,7 @@ class _MainWindow(QMainWindow):
     def disable_ui(self):
         """disable ui during the process"""
         self.ui.label_process.show()
+        self.ui.label_done.hide()
         self.ui.pushButton_process.setEnabled(False)
         self.ui.pushButton_choix_fichier.setEnabled(False)
         self.ui.pushButton_choix_image.setEnabled(False)
