@@ -14,7 +14,7 @@ class CheckboxWindowImage(QDialog):
         content_widget = QWidget(self)
 
         # Créez un layout pour le contenu
-        layout = QVBoxLayout(content_widget)
+        layoute = QVBoxLayout(content_widget)
 
         scroll_area = QScrollArea(self)
         scroll_area.setWidget(content_widget)
@@ -64,7 +64,7 @@ class CheckboxWindowImage(QDialog):
             group_layout.addWidget(uncheck_all_button[k])
 
             group_box.setLayout(group_layout)
-            layout.addWidget(group_box)
+            layoute.addWidget(group_box)
 
 
         check_all_button[0].clicked.connect(self.check_all1)
@@ -95,9 +95,8 @@ class CheckboxWindowImage(QDialog):
         button_layout = QVBoxLayout()
         button_layout.addWidget(ok_button)
 
-        main_layout = QVBoxLayout()
-        main_layout.addLayout(layout)
-        layout.addLayout(button_layout)
+        main_layout.addLayout(layoute)
+        main_layout.addLayout(button_layout)
 
         self.setLayout(main_layout)
 
