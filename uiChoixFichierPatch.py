@@ -1,18 +1,19 @@
 from PyQt5.QtWidgets import QGridLayout, QCheckBox, QPushButton, QVBoxLayout, QGroupBox, QDialog
 
 import listeFichier
+from utils import concat_listes
 
 class CheckboxWindowFile(QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Choix des fichiers à patch')
-        self.setGeometry(100, 100, 800, 600)
+        self.setGeometry(100, 100, 1200, 600)
         
         layout = QGridLayout()
         num_rows = [4, 9, 2]
         num_cols = [4, 6, 4]
         nom_groups = ["ESCAPE", "NARRATION", "AUTRE"]
-        nom_checkboxes = [listeFichier.LISTE_NOM_DESC_ID, listeFichier.LISTE_NOM_DLG_ID, listeFichier.LISTE_NOM_AUTRE_ID]
+        nom_checkboxes = [concat_listes(listeFichier.LISTE_NOM_DESC_ID, listeFichier.LISTE_NOM_DESC_ID_COMPLEMENT), concat_listes(listeFichier.LISTE_NOM_DLG_ID, listeFichier.LISTE_NOM_DLG_ID_COMPLEMENT), concat_listes(listeFichier.LISTE_NOM_AUTRE_ID, listeFichier.LISTE_NOM_AUTRE_ID_COMPLEMENT)]
         self.checkboxes = [[], [], []]  # Pour stocker les checkboxes
 
         check_all_button = []

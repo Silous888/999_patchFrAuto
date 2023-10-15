@@ -31,16 +31,29 @@ LISTE_NOM_FICHIER_DESC = ["00009eff.desc.xml", "00009f22.desc.xml", "00009ede.de
 LISTE_NOM_FICHIER_AUTRE = ["00009ed2.name.xml", "00009ed5.msg.xml", "00009ec4.fchart.xml", "00009ed4.doc.xml", "00009ed6.map.xml", "00009ed0.credit.xml", "00009ec7.room.xml", "00009ecc.item.xml"]
 
 
+
+
+
+
 LISTE_NOM_DLG_ID = ["a01b", "a01d", "a01e", "a11b", "a11d", "a12b", "a12d", "a12e", "a21b", "a21d", "a21e", "a31b", "a31d", "a32b", "a32d", "a41d", "a42b", "a42d", "abad", "aed1", "aed2", "aed3",
                     "b11b", "b11d", "b12b", "b12d", "b12e", "b21b", "b21d", "b21e", "b31b", "b31d", "b32b", "b32d", "bbad", "bed1", "bed2", "bed3", "bed4",
                     "c21b", "c21d", "c21e", "c31b", "c31d", "c32b", "c32d", "ced1",
                     "m10a", "m20a", "m30a", "m40a",
                     "common", "prea", "preb"]
 
+LISTE_NOM_DLG_ID_COMPLEMENT = ["Avant cabine de 3ème classe", "Narration cabine de 3ème classe", "Après cabine de 3ème classe", "Avant cabine de 2nd classe", "Narration cabine de 2nd classe", "Avant cuisine", "Narration cuisine", "Après cuisine", "Avant bloc opératoire", "Narration bloc opératoire", "après bloc opératoire", "Avant salle des cartes", "Narration salle des cartes", "Avant quartier du capitaine", "Narration quartier du capitaine", "Narration bibliothèque", "Avant bureau de Zéro", "Narration bureau de Zéro", "Fin hache", "Vraie fin, partie 1", "Vraie fin, partie 2", "Vraie fin, partie 3",
+                               "Avant cabine 1ère classe", "Narration cabine 1ère classe", "Avant Bar-Casino", "Narration Bar-Casino", "Après Bar-casino", "Avant laboratoire", "Narration laboratoire", "Après laboratoire", "Avant salle des machines", "Narration salle des machines", "Avant cargaison", "Narration cargaison", "Fin couteau", "Fin coffre, partie 1", "Fin coffre, partie 2", "Fin coffre, partie 3", "Fin coffre, partie 4",
+                               "Avant douches", "Narration douches", "Après douches", "Avant salles d'isolement", "Narration salles d'isolement", "Avant salle de torture", "Narration salle de torture", "Fin sous-marin",
+                               "Entre cabine 3ème classe et portes [4,5]", "Entre portes [4,5] et [3,7,8]", "Entre portes [3,7,8] et [1,2,6]", "Entre portes [1,2,6] et [9]",
+                               "phrases 'un nouveau fichier ajouté'", "phrases 'il y a plusieurs fins'", "phrases 'il y a plusieurs fins' aussi"]
+
 LISTE_NOM_DESC_ID = ["a01", "a11", "a12", "a21", "a31", "a32", "a41", "a42", "b11", "b12", "b21", "b31", "b32", "c21", "c31", "c32"]
+
+LISTE_NOM_DESC_ID_COMPLEMENT = ["Cabine de 3ème classe", "Cabine 2ème classe", "Cuisine", "Bloc opératoire", "Salle des cartes", "Quartier du capitaine", "Bibliothèque", "Bureau de Zéro", "Cabine 1ère classe", "Bar-Casino", "Laboratoire", "Salle des machines", "Cargaison", "Douches", "Salles d'isolement", "Salle de torture"]
 
 LISTE_NOM_AUTRE_ID = ["name", "msg", "fchart", "doc", "map", "credit", "room", "item"]
 
+LISTE_NOM_AUTRE_ID_COMPLEMENT = ["Noms des personnages", "Message système, tuto énigme finale", "Noms des chapitres", "Documents", "Noms des lieux", "Crédits de fins", "Noms des salles", "Noms des objets"]
 
 # IMAGE
 

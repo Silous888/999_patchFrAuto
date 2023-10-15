@@ -81,3 +81,6 @@ def get_exe_directory():
     exe_path = os.path.abspath(sys.argv[0])
     exe_dir = os.path.dirname(exe_path)
     return exe_dir
+
+def concat_listes(liste1, liste2):
+    return [elem1 + " - " + elem2 for elem1, elem2 in zip(liste1, liste2)]
