@@ -2,16 +2,18 @@
 import sys
 import os
 import inspect
+import time
 
 # -------------------- Import Lib Tier -------------------
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QProgressBar
-from PyQt5.QtCore import pyqtSignal, pyqtSlot, QDir, QObject, QThread, QRect, QSize
+from PyQt5.QtCore import pyqtSignal, pyqtSlot, QDir, QObject, QThread, QRect, QSize, Qt
 
 # -------------------- Import Lib User -------------------
 from Ui_ihm import Ui_MainWindow
 
 from uiChoixFichierPatch import CheckboxWindowFile
 from uiChoixImagePatch import CheckboxWindowImage
+from utils import etats_liste
 # -------------------- Constant -------------------
 
 
@@ -86,14 +88,12 @@ class _Worker(QObject):
         self.signal_process_done.emit()
 
     def change_etats_fichiers(self, boolVal):
-        print(boolVal)
         self.liste_choix_fichiers = []
         for taille in self.tailles:
             liste_interieure = [boolVal] * taille
             self.liste_choix_fichiers.append(liste_interieure)
     
     def change_etats_images(self, boolVal):
-        print(boolVal)
         self.liste_choix_images = []
         for taille in self.tailles_images:
             liste_interieure = [boolVal] * taille
@@ -107,7 +107,7 @@ class _Worker(QObject):
     
     def set_choix_fichiers_bool(self, liste):
         self.liste_choix_fichiers = liste
-    
+        
     def set_choix_images_bool(self, liste):
         self.liste_choix_images = liste
 
@@ -148,8 +148,8 @@ class _MainWindow(QMainWindow):
         self.ui.pushButton_choix_fichier.clicked.connect(self.ouvrir_choix_fichier)
         self.ui.pushButton_choix_image.clicked.connect(self.ouvrir_choix_image)
         self.ui.fileEdit_path.textChanged.connect(self.hide_done)
-        self.ui.checkBox_fichiers.stateChanged.connect(self.update_tous_les_fichiers)
-        self.ui.checkBox_images.stateChanged.connect(self.update_toutes_les_images)
+        self.ui.checkBox_fichiers.clicked.connect(self.update_tous_les_fichiers)
+        self.ui.checkBox_images.clicked.connect(self.update_toutes_les_images)
         # signals of the thread
         self.m_worker.command.connect(self.m_worker.thread_process)
         self.m_worker.signal_listes_fichiers_bool.connect(self.m_worker.set_choix_fichiers_bool)
@@ -242,6 +242,8 @@ class _MainWindow(QMainWindow):
         window_fichier.exec_()
         checkbox_values = window_fichier.get_checkbox_values()
         self.m_worker.signal_listes_fichiers_bool.emit(checkbox_values)
+        time.sleep(0.3)
+        self.change_etats_checkbox_fichiers(self.m_worker.liste_choix_fichiers)
 
     @pyqtSlot()
     def ouvrir_choix_image(self):
@@ -249,6 +251,8 @@ class _MainWindow(QMainWindow):
         window_images.exec_()
         checkbox_values_images = window_images.get_checkbox_values()
         self.m_worker.signal_listes_images_bool.emit(checkbox_values_images)
+        time.sleep(0.3)
+        self.change_etats_checkbox_images(self.m_worker.liste_choix_images)
     
     @pyqtSlot()
     def update_tous_les_fichiers(self):
@@ -257,6 +261,25 @@ class _MainWindow(QMainWindow):
     @pyqtSlot()
     def update_toutes_les_images(self):
         self.m_worker.change_etats_images(self.ui.checkBox_images.isChecked())
+        
+
+    def change_etats_checkbox_fichiers(self, liste):
+        etat = etats_liste(liste)
+        if etat == 1:
+            self.ui.checkBox_fichiers.setCheckState(Qt.CheckState.Checked)
+        if etat == 0:
+            self.ui.checkBox_fichiers.setCheckState(Qt.CheckState.PartiallyChecked)
+        if etat == -1:
+            self.ui.checkBox_fichiers.setCheckState(Qt.CheckState.Unchecked)
+    
+    def change_etats_checkbox_images(self, liste):
+        etat = etats_liste(liste)
+        if etat == 1:
+            self.ui.checkBox_images.setCheckState(Qt.CheckState.Checked)
+        if etat == 0:
+            self.ui.checkBox_images.setCheckState(Qt.CheckState.PartiallyChecked)
+        if etat == -1:
+            self.ui.checkBox_images.setCheckState(Qt.CheckState.Unchecked)
 
     @pyqtSlot(str)
     def hide_done(self, text):
