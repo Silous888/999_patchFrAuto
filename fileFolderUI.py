@@ -66,17 +66,12 @@ class _Worker(QObject):
     # Initialiser la liste principale
     liste_choix_fichiers = []
     liste_choix_images = []
-    # Boucle pour créer les listes intérieures et les remplir de valeurs True
-    for taille in tailles:
-        liste_interieure = [True] * taille
-        liste_choix_fichiers.append(liste_interieure)
 
-    for taille in tailles_images:
-        liste_interieure = [False] * taille
-        liste_choix_images.append(liste_interieure)
-    
+
     def __init__(self):
         super().__init__()
+        self.change_etats_fichiers(True)
+        self.change_etats_images(False)
         self.process_func1 = _do_nothing1
         self.process_func2 = _do_nothing2
         self.process_func3 = _do_nothing3
@@ -89,7 +84,21 @@ class _Worker(QObject):
         self.process_func3(path_and_folder_name, list_elements)
 
         self.signal_process_done.emit()
+
+    def change_etats_fichiers(self, boolVal):
+        print(boolVal)
+        self.liste_choix_fichiers = []
+        for taille in self.tailles:
+            liste_interieure = [boolVal] * taille
+            self.liste_choix_fichiers.append(liste_interieure)
     
+    def change_etats_images(self, boolVal):
+        print(boolVal)
+        self.liste_choix_images = []
+        for taille in self.tailles_images:
+            liste_interieure = [boolVal] * taille
+            self.liste_choix_images.append(liste_interieure)
+            
     def set_value_progressbar(self, value):
         self.signal_set_value_progressbar.emit(value)
 
@@ -139,6 +148,8 @@ class _MainWindow(QMainWindow):
         self.ui.pushButton_choix_fichier.clicked.connect(self.ouvrir_choix_fichier)
         self.ui.pushButton_choix_image.clicked.connect(self.ouvrir_choix_image)
         self.ui.fileEdit_path.textChanged.connect(self.hide_done)
+        self.ui.checkBox_fichiers.stateChanged.connect(self.update_tous_les_fichiers)
+        self.ui.checkBox_images.stateChanged.connect(self.update_toutes_les_images)
         # signals of the thread
         self.m_worker.command.connect(self.m_worker.thread_process)
         self.m_worker.signal_listes_fichiers_bool.connect(self.m_worker.set_choix_fichiers_bool)
@@ -238,6 +249,14 @@ class _MainWindow(QMainWindow):
         window_images.exec_()
         checkbox_values_images = window_images.get_checkbox_values()
         self.m_worker.signal_listes_images_bool.emit(checkbox_values_images)
+    
+    @pyqtSlot()
+    def update_tous_les_fichiers(self):
+        self.m_worker.change_etats_fichiers(self.ui.checkBox_fichiers.isChecked())
+
+    @pyqtSlot()
+    def update_toutes_les_images(self):
+        self.m_worker.change_etats_images(self.ui.checkBox_images.isChecked())
 
     @pyqtSlot(str)
     def hide_done(self, text):

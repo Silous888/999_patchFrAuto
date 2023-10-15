@@ -14,9 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(642, 86)
+        MainWindow.resize(642, 110)
         MainWindow.setMinimumSize(QtCore.QSize(642, 86))
-        MainWindow.setMaximumSize(QtCore.QSize(642, 86))
+        MainWindow.setMaximumSize(QtCore.QSize(642, 110))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/ressource/DreamteamLogo.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -45,6 +45,14 @@ class Ui_MainWindow(object):
         self.pushButton_choix_image = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_choix_image.setGeometry(QtCore.QRect(120, 40, 91, 23))
         self.pushButton_choix_image.setObjectName("pushButton_choix_image")
+        self.checkBox_fichiers = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_fichiers.setGeometry(QtCore.QRect(20, 80, 141, 17))
+        self.checkBox_fichiers.setChecked(True)
+        self.checkBox_fichiers.setTristate(False)
+        self.checkBox_fichiers.setObjectName("checkBox_fichiers")
+        self.checkBox_images = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_images.setGeometry(QtCore.QRect(160, 80, 141, 17))
+        self.checkBox_images.setObjectName("checkBox_images")
         self.pushButton_process.raise_()
         self.pushButton_browse.raise_()
         self.fileEdit_path.raise_()
@@ -52,6 +60,8 @@ class Ui_MainWindow(object):
         self.pushButton_choix_image.raise_()
         self.label_done.raise_()
         self.label_process.raise_()
+        self.checkBox_fichiers.raise_()
+        self.checkBox_images.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -67,5 +77,7 @@ class Ui_MainWindow(object):
         self.label_process.setText(_translate("MainWindow", "in process..."))
         self.pushButton_choix_fichier.setText(_translate("MainWindow", "Choisir fichiers"))
         self.pushButton_choix_image.setText(_translate("MainWindow", "Choisir images"))
+        self.checkBox_fichiers.setText(_translate("MainWindow", "Update tous les fichiers"))
+        self.checkBox_images.setText(_translate("MainWindow", "Update toutes les images"))
 from fileEdit import FileEdit
 import ressource_rc
