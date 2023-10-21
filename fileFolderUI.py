@@ -68,6 +68,7 @@ class _Worker(QObject):
     # Initialiser la liste principale
     liste_choix_fichiers = []
     liste_choix_images = []
+    choix_patch_dds = False
 
 
     def __init__(self):
@@ -150,6 +151,7 @@ class _MainWindow(QMainWindow):
         self.ui.fileEdit_path.textChanged.connect(self.hide_done)
         self.ui.checkBox_fichiers.clicked.connect(self.update_tous_les_fichiers)
         self.ui.checkBox_images.clicked.connect(self.update_toutes_les_images)
+        self.ui.checkBox_imagesDDS.clicked.connect(self.update_toutes_les_imagesDDS)
         # signals of the thread
         self.m_worker.command.connect(self.m_worker.thread_process)
         self.m_worker.signal_listes_fichiers_bool.connect(self.m_worker.set_choix_fichiers_bool)
@@ -261,7 +263,10 @@ class _MainWindow(QMainWindow):
     @pyqtSlot()
     def update_toutes_les_images(self):
         self.m_worker.change_etats_images(self.ui.checkBox_images.isChecked())
-        
+    
+    @pyqtSlot()
+    def update_toutes_les_imagesDDS(self):
+        self.m_worker.choix_patch_dds = self.ui.checkBox_imagesDDS.isChecked()
 
     def change_etats_checkbox_fichiers(self, liste):
         etat = etats_liste(liste)
@@ -295,6 +300,8 @@ class _MainWindow(QMainWindow):
         """enable ui when process is done"""
         self.ui.checkBox_fichiers.setEnabled(True)
         self.ui.checkBox_images.setEnabled(True)
+        self.ui.checkBox_imagesDDS.setEnabled(True)
+        self.ui.checkBox_videos.setEnabled(True)
         self.ui.label_process.hide()
         self.ui.label_done.show()
         self.ui.pushButton_process.setEnabled(True)
@@ -309,6 +316,8 @@ class _MainWindow(QMainWindow):
         """disable ui during the process"""
         self.ui.checkBox_fichiers.setEnabled(False)
         self.ui.checkBox_images.setEnabled(False)
+        self.ui.checkBox_imagesDDS.setEnabled(False)
+        self.ui.checkBox_videos.setEnabled(False)
         self.ui.label_process.show()
         self.ui.label_done.hide()
         self.ui.pushButton_process.setEnabled(False)

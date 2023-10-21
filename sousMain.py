@@ -300,12 +300,19 @@ def gestion_AUTRE_MAP(instance_worker):
     incrementer_progression(instance_worker)
 
 
-def gestion_images(instance_worker):
+def gestion_images_PNG(instance_worker):
     for i in range(len(listeFichier.LISTE_ID_DOSSIER)):
         for j in range(len(listeFichier.LISTE_ID_DOSSIER[i])):
             if instance_worker.liste_choix_images[i][j]:
-                update_texte_progression(instance_worker, "téléchargement image " + listeFichier.LISTE_NOM_DOSSIER[i][j])
+                update_texte_progression(instance_worker, "téléchargement PNG " + listeFichier.LISTE_NOM_DOSSIER[i][j])
                 ImageTelechargement.download_files_in_folder(listeFichier.LISTE_ID_DOSSIER[i][j])
+        incrementer_progression(instance_worker)
+
+
+def gestion_images_DDS(instance_worker):
+    if instance_worker.choix_patch_dds:
+        update_texte_progression(instance_worker, "téléchargement DDS")
+        ImageTelechargement.download_files_in_folder(listeFichier.ID_DOSSIER_DDS)
         incrementer_progression(instance_worker)
 
 

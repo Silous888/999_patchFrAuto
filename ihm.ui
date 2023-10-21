@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>642</width>
-    <height>110</height>
+    <height>200</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>642</width>
-    <height>86</height>
+    <height>200</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>642</width>
-    <height>110</height>
+    <height>200</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -132,12 +132,12 @@
      <rect>
       <x>20</x>
       <y>80</y>
-      <width>141</width>
+      <width>181</width>
       <height>17</height>
      </rect>
     </property>
     <property name="text">
-     <string>Update tous les fichiers</string>
+     <string>Update tous les fichiers textes</string>
     </property>
     <property name="checked">
      <bool>true</bool>
@@ -149,14 +149,40 @@
    <widget class="QCheckBox" name="checkBox_images">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>80</y>
-      <width>141</width>
+      <x>20</x>
+      <y>110</y>
+      <width>201</width>
       <height>17</height>
      </rect>
     </property>
     <property name="text">
-     <string>Update toutes les images</string>
+     <string>Update tous les PNG (petites images)</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_imagesDDS">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>140</y>
+      <width>211</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Update tous  les DDS (images de fond)</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_videos">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Update les vidéos</string>
     </property>
    </widget>
    <zorder>pushButton_process</zorder>
@@ -168,6 +194,8 @@
    <zorder>label_process</zorder>
    <zorder>checkBox_fichiers</zorder>
    <zorder>checkBox_images</zorder>
+   <zorder>checkBox_imagesDDS</zorder>
+   <zorder>checkBox_videos</zorder>
   </widget>
  </widget>
  <customwidgets>
