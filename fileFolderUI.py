@@ -293,6 +293,8 @@ class _MainWindow(QMainWindow):
     @pyqtSlot()
     def enable_ui(self):
         """enable ui when process is done"""
+        self.ui.checkBox_fichiers.setEnabled(True)
+        self.ui.checkBox_images.setEnabled(True)
         self.ui.label_process.hide()
         self.ui.label_done.show()
         self.ui.pushButton_process.setEnabled(True)
@@ -305,6 +307,8 @@ class _MainWindow(QMainWindow):
 
     def disable_ui(self):
         """disable ui during the process"""
+        self.ui.checkBox_fichiers.setEnabled(False)
+        self.ui.checkBox_images.setEnabled(False)
         self.ui.label_process.show()
         self.ui.label_done.hide()
         self.ui.pushButton_process.setEnabled(False)
