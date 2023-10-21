@@ -315,6 +315,12 @@ def gestion_images_DDS(instance_worker):
         ImageTelechargement.download_files_in_folder(listeFichier.ID_DOSSIER_DDS)
         incrementer_progression(instance_worker)
 
+def gestion_videos(instance_worker):
+    if instance_worker.choix_patch_videos:
+        update_texte_progression(instance_worker, "téléchargement vidéos")
+        ImageTelechargement.download_files_in_folder(listeFichier.ID_DOSSIER_VIDEO)
+        incrementer_progression(instance_worker)
+
 
 def incrementer_progression(instance_worker, valeur=1):
     """incrémente la barre de progression

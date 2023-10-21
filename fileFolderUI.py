@@ -69,7 +69,7 @@ class _Worker(QObject):
     liste_choix_fichiers = []
     liste_choix_images = []
     choix_patch_dds = False
-
+    choix_patch_videos = False
 
     def __init__(self):
         super().__init__()
@@ -152,6 +152,7 @@ class _MainWindow(QMainWindow):
         self.ui.checkBox_fichiers.clicked.connect(self.update_tous_les_fichiers)
         self.ui.checkBox_images.clicked.connect(self.update_toutes_les_images)
         self.ui.checkBox_imagesDDS.clicked.connect(self.update_toutes_les_imagesDDS)
+        self.ui.checkBox_videos.clicked.connect(self.update_toutes_les_videos)
         # signals of the thread
         self.m_worker.command.connect(self.m_worker.thread_process)
         self.m_worker.signal_listes_fichiers_bool.connect(self.m_worker.set_choix_fichiers_bool)
@@ -267,6 +268,10 @@ class _MainWindow(QMainWindow):
     @pyqtSlot()
     def update_toutes_les_imagesDDS(self):
         self.m_worker.choix_patch_dds = self.ui.checkBox_imagesDDS.isChecked()
+
+    @pyqtSlot()
+    def update_toutes_les_videos(self):
+        self.m_worker.choix_patch_videos = self.ui.checkBox_videos.isChecked()
 
     def change_etats_checkbox_fichiers(self, liste):
         etat = etats_liste(liste)
