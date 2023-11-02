@@ -35,6 +35,3 @@ def patch_ze1_exe():
 
 def patch_Launcher_exe():
     patch_any_exe("Launcher")
-
-
-patch_Launcher_exe()
