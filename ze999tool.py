@@ -6,7 +6,7 @@ def unpack_ze1_bin():
     """décompile le bin de 999"""
     subprocess.run(
         "ZE999Tool.v0.9.8.1\\ZE999Tool.exe bin-unpack bin_org\\ze1_data.bin data_ze1",
-        shell=True, creationflags=subprocess.CREATE_NO_WINDOW,
+        shell=True, creationflags=subprocess.CREATE_NO_WINDOW
     )
 
 
@@ -14,7 +14,7 @@ def extraire_fichiers_valide():
     """copie les fichiers intéressants pour la traduction dans le dossier sir_org"""
     subprocess.run(
         "ZE999Tool.v0.9.8.1\\ZE999Tool.exe sir-copy-valid data_ze1\\sir sir_org",
-        shell=True, creationflags=subprocess.CREATE_NO_WINDOW,
+        shell=True, creationflags=subprocess.CREATE_NO_WINDOW
     )
 
 
@@ -31,23 +31,31 @@ def generer_fichier_caractere():
     """génère le fichier krchars pour patcher les caractères coréens"""
     subprocess.run(
         "ZE999Tool.v0.9.8.1\\ZE999Tool.exe sir-generate-patch-chars sir_org xml_patch xml_patch\\krchars.txt",
-        shell=True, creationflags=subprocess.CREATE_NO_WINDOW,
+        shell=True, creationflags=subprocess.CREATE_NO_WINDOW
     )
 
 
 def compresser_fichier_font():
     """créér les xml et les png des fonts"""
-    subprocess.run(
-        "ZE999Tool.v0.9.8.1\\ZE999Tool.exe sir-generate-font-data sir_org xml_patch xml_patch\\font\\default.fnt xml_patch\\font\\border.fnt xml_patch",
-        shell=True, creationflags=subprocess.CREATE_NO_WINDOW,
-    )
+
+    chemin_ze999tool = r"ZE999Tool.v0.9.8.1\\ZE999Tool.exe"
+    commande_shell = [
+        chemin_ze999tool,
+        "sir-generate-font-data",
+        "sir_org",
+        "xml_patch",
+        "xml_patch\\font\\default.fnt",
+        "xml_patch\\font\\border.fnt",
+        "xml_patch",
+    ]
+    subprocess.run(commande_shell, shell=True, creationflags=subprocess.CREATE_NO_WINDOW)
 
 
 def compresser_fichiers_modifies():
     """compresse les xml en .sir"""
     subprocess.run(
         "ZE999Tool.v0.9.8.1\\ZE999Tool.exe sir-patch sir_org xml_patch 3 sir_patched",
-        shell=True, creationflags=subprocess.CREATE_NO_WINDOW,
+        shell=True, creationflags=subprocess.CREATE_NO_WINDOW
     )
 
 

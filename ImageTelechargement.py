@@ -8,7 +8,8 @@ import os
 dossier_telechargement = "./ZE999Tool.v0.9.8.1/sir_patched"
 
 
-credentials = sc.Credentials.from_service_account_info(credentials_info, scopes=['https://www.googleapis.com/auth/drive'])
+credentials = sc.Credentials.from_service_account_info(credentials_info,
+                                                       scopes=['https://www.googleapis.com/auth/drive'])
 
 drive_service = build('drive', 'v3', credentials=credentials)
 
