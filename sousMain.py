@@ -8,7 +8,7 @@ import utils
 import os
 import shutil
 import ImageTelechargement
-import patchExe
+import patchExe1
 
 
 TOTAL_PROGRESSION = (
@@ -325,8 +325,8 @@ def gestion_videos(instance_worker):
 def gestion_exe(instance_worker):
     if instance_worker.choix_patch_exe:
         update_texte_progression(instance_worker, "patch launcher et ze1.exe")
-        patchExe.patch_ze1_exe()
-        patchExe.patch_Launcher_exe()
+        patchExe1.patch_ze1_exe()
+        patchExe1.patch_Launcher_exe()
 
 def incrementer_progression(instance_worker, valeur=1):
     """incrémente la barre de progression

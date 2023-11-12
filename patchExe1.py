@@ -121,8 +121,6 @@ def patch_ze1_exe():
 def patch_Launcher_exe():
     patch_exe_full_process("Launcher")
 
-
-creer_patch("ze1")
 # Pour qu'on puisse mettre à jour avec google drive, faudrait
 # télécharger le patch, l'appliquer et créer un nouveau exe
 # créer un nouveau patch qui permet de passer de l'exe patché au exe original
