@@ -34,7 +34,8 @@ class CheckboxWindowImage(QDialog):
                       "INTERFACE JEU - GROS BOUTONS RECTANGLE", "INTERFACE JEU - LABEL",
                       "LETTRE ET CHIFFRE",
                       "MENU PRINCIPAL"]
-        nom_checkboxes = [listeFichier.LISTE_NOM_AUTRE_IMAGE + listeFichier.LISTE_NOM_CLAVIER_MANETTE + listeFichier.LISTE_LOGO_ITEM + listeFichier.LISTE_LOGO,
+        nom_checkboxes = [listeFichier.LISTE_NOM_AUTRE_IMAGE + listeFichier.LISTE_NOM_CLAVIER_MANETTE +
+                          listeFichier.LISTE_LOGO_ITEM + listeFichier.LISTE_LOGO,
                           listeFichier.LISTE_NOM_ENIGME,
                           listeFichier.LISTE_INTERFACE_JEU,
                           listeFichier.LISTE_INTERFACE_JEU_BARRE_LABEL_ET_SWITCH_MODE,
