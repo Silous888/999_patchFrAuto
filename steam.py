@@ -18,14 +18,16 @@ def trouver_dossier_steam():
         )
         chemin_steam = winreg.QueryValueEx(key_steam, KEY_NAME)[0]
         return chemin_steam
-    except:
+    except Exception:
         utils.logging.error("dossier steam non trouvé")
 
 
 def extraire_path_dans_ligne(ligne):
-    """récupère le path de la steamlibrary de la ligne du fichier libraryfolders.vdf
+    """récupère le path de la steamlibrary de la
+    ligne du fichier libraryfolders.vdf
                 "path"		"F:\\SteamLibrary"
-    la ligne se présente comme ceci, on récupère le string situé entre les 3ème et 4ème guillemets
+    la ligne se présente comme ceci, on récupère le string
+    situé entre les 3ème et 4ème guillemets
 
     Args:
         ligne (str): ligne de libraryfolders.vdf où est le situé le chemin de la steamlibrary
@@ -47,7 +49,8 @@ def extraire_path_dans_ligne(ligne):
 
 
 def trouver_dossiers_jeux(chemin_steam):
-    """ouvre le fichier libraryfolders.vdf présent dans le dossier steam pour trouver les path des steamlibrary
+    """ouvre le fichier libraryfolders.vdf présent dans le dossier steam
+    pour trouver les path des steamlibrary
 
     Args:
         chemin_steam (str): chemin absolu du répertoire steam

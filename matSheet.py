@@ -1,6 +1,7 @@
 class NomsColonnes:
-    """noms des 3 colonnes avec les données intéressantes pour chaque type de fichier
-    la première colonne est celle de l'ID, ensuite celle du texte anglais, puis celle du texte français
+    """noms des 3 colonnes avec les données intéressantes pour chaque type
+    de fichier la première colonne est celle de l'ID, ensuite celle du
+    texte anglais, puis celle du texte français
     """
 
     DLG = ["id", "text", "VF"]
@@ -16,20 +17,21 @@ class NomsColonnes:
 
 
 def get_matrice_simplifie(mat, liste_noms_colonnes):
-    """renvoie la matrice simplifié du sheet, avec seulement les données nécessaires
+    """renvoie la matrice simplifié du sheet, avec seulement
+    les données nécessaires
 
     Args:
         mat (list(list(str))): toutes les valeurs présentes dans la sheet
-        liste_noms_colonnes (list\[3](str)): les noms des colonnes dont on veut les valeurs
+        liste_noms_colonnes (list[3](str)): les noms des colonnes dont on veut les valeurs
 
     Returns:
-        list(list\[3](str)): matrice avec les données intéressantes
+        list(list[3](str)): matrice avec les données intéressantes
     """
     try:
         position_id, position_eng, position_fr = get_positions_colonnes(
             mat[0], liste_noms_colonnes
         )
-    except:
+    except Exception:
         print("valeur non trouvée")
         return []
     new_mat = []
@@ -62,7 +64,7 @@ def get_matrice_simplifie(mat, liste_noms_colonnes):
                     value_mat_id = id_doc
                 if (
                     liste_noms_colonnes != NomsColonnes.DESC
-                    or "▼" in mat[i][position_eng] # on ajoute juste les lignes de script pour
+                    or "▼" in mat[i][position_eng]  # on ajoute juste les lignes de script pour
                 ):                                 # les fichiers DESC
                     new_mat.append([value_mat_id, mat[i][position_eng]])
                     new_mat[-1].append(
@@ -74,21 +76,22 @@ def get_matrice_simplifie(mat, liste_noms_colonnes):
 
 
 def get_matrice_simplifie_double_id(mat, liste_noms_colonnes):
-    """renvoie la matrice simplifié du sheet, avec seulement les données nécessaires
-    pour les sheet présentant 2 id pour identifier une ligne
+    """renvoie la matrice simplifié du sheet, avec seulement
+    les données nécessaires pour les sheet présentant 2 id
+    pour identifier une ligne
 
     Args:
         mat (list(list(str))): toutes les valeurs présentes dans la sheet
-        liste_noms_colonnes (list\[3](str)): les noms des colonnes dont on veut les valeurs
+        liste_noms_colonnes (list[3](str)): les noms des colonnes dont on veut les valeurs
 
     Returns:
-        list(list\[4](str)): matrice avec les données intéressantes
+        list(list[4](str)): matrice avec les données intéressantes
     """
     try:
         position_id, position_eng, position_fr = get_positions_colonnes(
             mat[0], liste_noms_colonnes
         )
-    except:
+    except Exception:
         print("valeur non trouvée")
         return []
     new_mat = []

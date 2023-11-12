@@ -5,12 +5,13 @@ import listeFichier
 
 NOMBRE_GROUPE = 10
 
+
 class CheckboxWindowImage(QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Choix des images à patch')
         self.setGeometry(25, 25, 1000, 400)
-        
+
         content_widget = QWidget(self)
 
         # Créez un layout pour le contenu
@@ -33,7 +34,7 @@ class CheckboxWindowImage(QDialog):
                       "INTERFACE JEU - GROS BOUTONS RECTANGLE", "INTERFACE JEU - LABEL",
                       "LETTRE ET CHIFFRE",
                       "MENU PRINCIPAL"]
-        nom_checkboxes = [listeFichier.LISTE_NOM_AUTRE_IMAGE + listeFichier.LISTE_NOM_CLAVIER_MANETTE + listeFichier.LISTE_LOGO_ITEM +  listeFichier.LISTE_LOGO,
+        nom_checkboxes = [listeFichier.LISTE_NOM_AUTRE_IMAGE + listeFichier.LISTE_NOM_CLAVIER_MANETTE + listeFichier.LISTE_LOGO_ITEM + listeFichier.LISTE_LOGO,
                           listeFichier.LISTE_NOM_ENIGME,
                           listeFichier.LISTE_INTERFACE_JEU,
                           listeFichier.LISTE_INTERFACE_JEU_BARRE_LABEL_ET_SWITCH_MODE,
@@ -53,7 +54,7 @@ class CheckboxWindowImage(QDialog):
             group_layout = QGridLayout(group_box)
             for i in range(num_cols[k]):
                 for j in range(num_rows[k]):
-                    index = i * num_rows[k] + j # Calcul de l'index pour afficher en colonne
+                    index = i * num_rows[k] + j  # Calcul de l'index pour afficher en colonne
                     checkbox = QCheckBox(f'{nom_checkboxes[k][index]}')
                     self.checkboxes[k].append(checkbox)  # Ajouter la checkbox à la liste
                     group_layout.addWidget(checkbox, j, i)
@@ -65,7 +66,6 @@ class CheckboxWindowImage(QDialog):
 
             group_box.setLayout(group_layout)
             layoute.addWidget(group_box)
-
 
         check_all_button[0].clicked.connect(self.check_all1)
         check_all_button[1].clicked.connect(self.check_all2)
@@ -109,7 +109,7 @@ class CheckboxWindowImage(QDialog):
     def uncheck_all1(self):
         for checkbox in self.checkboxes[0]:
             checkbox.setChecked(False)
-    
+
     def check_all2(self):
         for checkbox in self.checkboxes[1]:
             checkbox.setChecked(True)
@@ -117,7 +117,7 @@ class CheckboxWindowImage(QDialog):
     def uncheck_all2(self):
         for checkbox in self.checkboxes[1]:
             checkbox.setChecked(False)
-    
+
     def check_all3(self):
         for checkbox in self.checkboxes[2]:
             checkbox.setChecked(True)
@@ -133,7 +133,7 @@ class CheckboxWindowImage(QDialog):
     def uncheck_all4(self):
         for checkbox in self.checkboxes[3]:
             checkbox.setChecked(False)
-    
+
     def check_all5(self):
         for checkbox in self.checkboxes[4]:
             checkbox.setChecked(True)
@@ -141,7 +141,7 @@ class CheckboxWindowImage(QDialog):
     def uncheck_all5(self):
         for checkbox in self.checkboxes[4]:
             checkbox.setChecked(False)
-    
+
     def check_all6(self):
         for checkbox in self.checkboxes[5]:
             checkbox.setChecked(True)
@@ -149,7 +149,7 @@ class CheckboxWindowImage(QDialog):
     def uncheck_all6(self):
         for checkbox in self.checkboxes[5]:
             checkbox.setChecked(False)
-    
+
     def check_all7(self):
         for checkbox in self.checkboxes[6]:
             checkbox.setChecked(True)
@@ -157,7 +157,7 @@ class CheckboxWindowImage(QDialog):
     def uncheck_all7(self):
         for checkbox in self.checkboxes[6]:
             checkbox.setChecked(False)
-    
+
     def check_all8(self):
         for checkbox in self.checkboxes[7]:
             checkbox.setChecked(True)
@@ -165,7 +165,7 @@ class CheckboxWindowImage(QDialog):
     def uncheck_all8(self):
         for checkbox in self.checkboxes[7]:
             checkbox.setChecked(False)
-    
+
     def check_all9(self):
         for checkbox in self.checkboxes[8]:
             checkbox.setChecked(True)
@@ -173,7 +173,7 @@ class CheckboxWindowImage(QDialog):
     def uncheck_all9(self):
         for checkbox in self.checkboxes[8]:
             checkbox.setChecked(False)
-    
+
     def check_all10(self):
         for checkbox in self.checkboxes[9]:
             checkbox.setChecked(True)
@@ -187,7 +187,6 @@ class CheckboxWindowImage(QDialog):
         for i in range(NOMBRE_GROUPE):
             self.checkbox_values.append([checkbox.isChecked() for checkbox in self.checkboxes[i]])
         self.close()
-    
+
     def get_checkbox_values(self):
         return self.checkbox_values
-

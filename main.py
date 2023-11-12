@@ -3,6 +3,7 @@ import sousMain as sm
 
 # pyinstaller --onefile --noconsole --name 999_Patch_Automatique --icon=./ressource/DreamteamLogo.ico main.py
 
+
 def process(instance_worker):
     """fonction passée au l'instance de l'UI
 
@@ -10,17 +11,17 @@ def process(instance_worker):
         instance_worker (worker): permet de modifier la valeur de la barre
         de progression, et le texte de progression
     """
-    sm.update_texte_progression(instance_worker, "recherche du bin zero escape de steam")
+    sm.update_texte_progression(instance_worker, "recherche du bin ZE steam")
     chemin_bin_steam = sm.recup_bin_ze_et_chemin_steam()
     sm.incrementer_progression(instance_worker, 10)
     sm.gestion_DLG(instance_worker)
     sm.gestion_DESC(instance_worker)
     sm.gestion_AUTRE(instance_worker)
-    
+
     sm.gestion_images_PNG(instance_worker)
     sm.gestion_images_DDS(instance_worker)
     sm.gestion_videos(instance_worker)
-    
+
     sm.gestion_exe(instance_worker)
 
     instance_worker.set_value_progressbar(90)

@@ -4,15 +4,16 @@ import sys
 
 # Configuration des logs
 logging.basicConfig(
-    level=logging.DEBUG,  # Niveau de journalisation (DEBUG, INFO, WARNING, ERROR, CRITICAL)
-    format="%(asctime)s - %(levelname)s - %(message)s",  # Format des messages de log
+    level=logging.DEBUG,  # type (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    format="%(asctime)s - %(levelname)s - %(message)s",  # Format des messages
     filename="app.log",  # Nom du fichier de log
     filemode="w",  # Mode d'écriture du fichier ('w' pour écrire à chaque fois)
 )
 
 
 def convertir_double_slash_en_simple(path):
-    """converti les slash \ en double slash dans un chaine de caractère, pour éviter les problèmes
+    """converti les slash en double slash dans un chaine de caractère,
+    pour éviter les problèmes
 
     Args:
         path (str): path windows
@@ -73,7 +74,8 @@ def get_valeur_progression(actuelle, total):
 
 
 def get_exe_directory():
-    """renvoie le chemin absolu du chemin où est situé le dossier de l'exécutable, ou le .py exécuté
+    """renvoie le chemin absolu du chemin où est situé
+    le dossier de l'exécutable, ou le .py exécuté
 
     Returns:
         str: chemin absolu du dossier de l'exécutable
@@ -81,7 +83,6 @@ def get_exe_directory():
     exe_path = os.path.abspath(sys.argv[0])
     exe_dir = os.path.dirname(exe_path)
     return exe_dir
-
 
 
 def concat_listes(liste1, liste2):
@@ -95,12 +96,14 @@ def etats_true(liste_de_listes):
                 return False
     return True
 
+
 def etats_false(liste_de_listes):
     for sous_liste in liste_de_listes:
         for element in sous_liste:
             if element:
                 return False
     return True
+
 
 def etats_liste(liste_de_listes):
     if etats_true(liste_de_listes):

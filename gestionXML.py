@@ -73,14 +73,14 @@ def get_elements_avec_texte_reccursion(racine, liste_noeuds):
     Returns:
         list(element): liste où on stocke les éléments présentant du texte mise à jour
     """
-    if ( # si l'élément contient du texte à traduire,
+    if (  # si l'élément contient du texte à traduire,
         "text" in racine.attrib
         or "text1" in racine.attrib
         or "value" in racine.attrib
         or "name" in racine.attrib
     ):
-        liste_noeuds.append(racine) # alors on l'ajoute
-    for sous_element in racine: # on rappelle la fonction pour tous les enfants de l'élément
+        liste_noeuds.append(racine)  # alors on l'ajoute
+    for sous_element in racine:  # on rappelle la fonction pour tous les enfants de l'élément
         liste_noeuds = get_elements_avec_texte_reccursion(sous_element, liste_noeuds)
     return liste_noeuds
 
@@ -109,7 +109,7 @@ def set_text_by_id(liste_elements, id, texte):
                 continue
         elif "key" in element.attrib and element.attrib["key"] == utils.supprime_amp(
             id
-        ): # pour le fichier xml name, il faut faire ça
+        ):  # pour le fichier xml name, il faut faire ça
             if "name" in element.attrib:
                 element.attrib["name"] = texte
                 continue
@@ -121,7 +121,7 @@ def set_text_by_id(liste_elements, id, texte):
             if "text" in element.attrib:
                 element.attrib["text"] = texte
                 continue
-        else: # cas de l'id présent dans le parent
+        else:  # cas de l'id présent dans le parent
             if (
                 "key" in element.getparent().attrib
                 and element.getparent().attrib["key"] == id

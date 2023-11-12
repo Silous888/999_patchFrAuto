@@ -14,7 +14,7 @@ import patchExe
 TOTAL_PROGRESSION = (
     len(listeFichier.LISTE_NOM_FICHIER_AUTRE)
     + len(listeFichier.LISTE_NOM_FICHIER_DESC)
-    + len(listeFichier.LISTE_NOM_FICHIER_DLG) 
+    + len(listeFichier.LISTE_NOM_FICHIER_DLG)
     + len(listeFichier.LISTE_ID_DOSSIER)
     + 20
 )
@@ -42,11 +42,11 @@ def recup_arbre_elements_et_mat_sheet_simplifie(
 
     Args:
         fichier (str): fichier xml à traiter
-        noms_colonnes (list\[3](str)): noms des colonnes pour ce fichier
+        noms_colonnes (list[3](str)): noms des colonnes pour ce fichier
         double_id (bool, optional): True si fichier avec double id. Defaults to False.
 
     Returns:
-        elementTree, list(element), list(list\[3](str)): arbre, liste des éléments avec texte
+        elementTree, list(element), list(list[3](str)): arbre, liste des éléments avec texte
         et matrice des données importante du sheet
     """
     arbre = gestionXML.get_arbre_xml(gestionXML.CHEMIN_XML + fichier)
@@ -67,15 +67,14 @@ def modifier_texte_dans_fichier(elements, mat, double_id=False):
 
     Args:
         elements (list(element)): les élements xml
-        mat (list(list\[3](str))): données importantes du sheet
+        mat (list(list[3](str))): données importantes du sheet
         double_id (bool, optional): True si fichier avec double id. Defaults to False.
     """
     for i in range(len(mat)):
-        
         if not double_id:
             texte_ligne = utils.remplace_guillemet(utils.remplace_apostrophe(mat[i][2]))
             gestionXML.set_text_by_id(elements, mat[i][0], texte_ligne)
-        else: 
+        else:
             texte_ligne = utils.remplace_guillemet(utils.remplace_apostrophe(mat[i][3]))
             gestionXML.set_text_by_double_id(
                 elements, mat[i][0], mat[i][1], texte_ligne
@@ -83,11 +82,12 @@ def modifier_texte_dans_fichier(elements, mat, double_id=False):
 
 
 def modifier_texte_dans_fichier_de_merde(elements, mat):
-    """met le texte français du sheet dans le xml, pour fichier sans id unique pour chaque ligne
+    """met le texte français du sheet dans le xml, pour fichier
+    sans id unique pour chaque ligne
 
     Args:
         elements (list(element)): les élements xml
-        mat (list(list\[3](str))): données importantes du sheet
+        mat (list(list[3](str))): données importantes du sheet
     """
     for i in range(len(mat)):
         texte_eng = utils.remplace_guillemet(utils.remplace_apostrophe(mat[i][1]))
@@ -115,7 +115,7 @@ def modif_fichier_xml(instance_worker, fichier, nomColonne, double_id=False):
     Args:
         instance_worker (worker): sert pour update la progression
         fichier (str): fichier à modifier
-        nomColonne (list\[3](str)): noms des colonnes pour ce fichier
+        nomColonne (list[3](str)): noms des colonnes pour ce fichier
         double_id (bool, optional): True si fichier avec double id. Defaults to False.
     """
     instance_worker.set_text_progress(fichier)
@@ -135,7 +135,7 @@ def modif_fichier_xml_de_merde(instance_worker, fichier, nomColonne):
     Args:
         instance_worker (worker): sert pour update la progression
         fichier (str): fichier à modifier
-        nomColonne (list\[3](str)): noms des colonnes pour ce fichier
+        nomColonne (list[3](str)): noms des colonnes pour ce fichier
     """
     instance_worker.set_text_progress(fichier)
     arbre, elements, mat = recup_arbre_elements_et_mat_sheet_simplifie(
@@ -193,7 +193,6 @@ def gestion_AUTRE(instance_worker):
         gestion_AUTRE_ROOM(instance_worker)
     if liste_choix_fichiers_AUTRE[7]:
         gestion_AUTRE_ITEM(instance_worker)
-    
 
 
 def gestion_AUTRE_NAME(instance_worker):
@@ -316,17 +315,21 @@ def gestion_images_DDS(instance_worker):
         ImageTelechargement.download_files_in_folder(listeFichier.ID_DOSSIER_DDS)
         incrementer_progression(instance_worker)
 
+
 def gestion_videos(instance_worker):
     if instance_worker.choix_patch_videos:
         update_texte_progression(instance_worker, "téléchargement vidéos")
         ImageTelechargement.download_files_in_folder(listeFichier.ID_DOSSIER_VIDEO)
         incrementer_progression(instance_worker)
 
+
 def gestion_exe(instance_worker):
     if instance_worker.choix_patch_exe:
         update_texte_progression(instance_worker, "patch launcher et ze1.exe")
+        patchExe.download_files_in_folder(listeFichier.ID_DOSSIER_PATCH_EXE)
         patchExe.patch_ze1_exe()
         patchExe.patch_Launcher_exe()
+
 
 def incrementer_progression(instance_worker, valeur=1):
     """incrémente la barre de progression

@@ -1,6 +1,6 @@
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
-from google.oauth2 import service_account
+from google.oauth2 import service_account as sc
 from credentials import credentials_info
 import io
 import os
@@ -8,7 +8,7 @@ import os
 dossier_telechargement = "./ZE999Tool.v0.9.8.1/sir_patched"
 
 
-credentials = service_account.Credentials.from_service_account_info(credentials_info, scopes=['https://www.googleapis.com/auth/drive'])
+credentials = sc.Credentials.from_service_account_info(credentials_info, scopes=['https://www.googleapis.com/auth/drive'])
 
 drive_service = build('drive', 'v3', credentials=credentials)
 

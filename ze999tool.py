@@ -21,7 +21,9 @@ def extraire_fichiers_valide():
 def decompression_textes():
     """rend les fichiers de sir_org compréhensibles en les transformant en xml"""
     subprocess.run(
-        "ZE999Tool.v0.9.8.1\\ZE999Tool.exe sir-unpack sir_org xml_unpacked", shell=True, creationflags=subprocess.CREATE_NO_WINDOW
+        "ZE999Tool.v0.9.8.1\\ZE999Tool.exe sir-unpack sir_org xml_unpacked",
+        shell=True,
+        creationflags=subprocess.CREATE_NO_WINDOW
     )
 
 

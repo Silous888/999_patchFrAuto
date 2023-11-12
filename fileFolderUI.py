@@ -16,10 +16,7 @@ from uiChoixImagePatch import CheckboxWindowImage
 from utils import etats_liste
 # -------------------- Constant -------------------
 
-
-
 # -------------------- Class -------------------
-
 
 class FileExtensions:
     VIDEOS = [".mp4", ".m4v", ".avi", ".mov", ".wmv"]
