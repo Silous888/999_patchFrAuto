@@ -103,7 +103,7 @@ def recompiler_jeu(chemin_bin_steam):
     Args:
         chemin_bin_steam (str): chemin du ze1_data.bin du dossier steam du jeu
     """
-    ze999tool.compresser_fichier_font()
+    # ze999tool.compresser_fichier_font()
     ze999tool.compresser_fichiers_modifies()
     ze999tool.appliquer_fichiers_modif_bin(chemin_bin_steam)
 
