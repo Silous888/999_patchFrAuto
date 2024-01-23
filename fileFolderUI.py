@@ -330,7 +330,7 @@ class _MainWindow(QMainWindow):
         self.ui.checkBox_images.setEnabled(False)
         self.ui.checkBox_imagesDDS.setEnabled(False)
         self.ui.checkBox_videos.setEnabled(False)
-        self.ui.checkBox_exe.setEnabled(True)
+        self.ui.checkBox_exe.setEnabled(False)
         self.ui.label_process.show()
         self.ui.label_done.hide()
         self.ui.pushButton_process.setEnabled(False)
