@@ -3,6 +3,7 @@ import sousMain as sm
 
 # pyinstaller --onefile --noconsole --name 999_Patch_Automatique --icon=./ressource/DreamteamLogo.ico main.py
 
+
 def process(instance_worker):
     """fonction passée au l'instance de l'UI
 
@@ -16,11 +17,11 @@ def process(instance_worker):
     sm.gestion_DLG(instance_worker)
     sm.gestion_DESC(instance_worker)
     sm.gestion_AUTRE(instance_worker)
-    
+
     sm.gestion_images_PNG(instance_worker)
     sm.gestion_images_DDS(instance_worker)
     sm.gestion_videos(instance_worker)
-    
+
     sm.gestion_exe(instance_worker)
 
     instance_worker.set_value_progressbar(90)
