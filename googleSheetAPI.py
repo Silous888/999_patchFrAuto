@@ -8,9 +8,9 @@ from credentials import credentials_info
 class DossierDrive:
     """identifiant des différents dossier drive des sheets
     """
-    DLG = "1ju-AqhV1Nuim4fqJIwlcDEyxKMaivrqs"
-    DESC = "10zyiSxmUxU8i2o_akYrNzfNO5IxSD1Zy"
-    AUTRE = "1XhIHxcWxuktT77u5Owl239r4Iz9ZNNTA"
+    DLG = "1uzSuJVF2_OpLi3DpaJs9vvPRJPEsT3Ar"
+    DESC = "1Cl7yx4VFFaxbdj7YU1qV1-O_9G6aDklv"
+    AUTRE = "1K6JdRrXz-QashkGgB6tBKjAhQzY7g7I8"
 
 
 scope = [
